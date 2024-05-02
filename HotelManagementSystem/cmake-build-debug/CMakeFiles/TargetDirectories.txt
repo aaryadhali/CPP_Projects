@@ -1,0 +1,3 @@
+C:/Users/aarya_yoga/CLionProjects/HotelManagementSystem/cmake-build-debug/CMakeFiles/HotelManagementSystem.dir
+C:/Users/aarya_yoga/CLionProjects/HotelManagementSystem/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/aarya_yoga/CLionProjects/HotelManagementSystem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
