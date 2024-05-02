@@ -1,49 +1,59 @@
-
 #include <iostream>
 #include "Guest.h"
 
-
 using namespace std;
 
-Guest::Guest(string &_name, string contactInfo, Booking &_bookingDetails, string &_specialRequests): name(_name), contactInfo(contactInfo), bookingDetails(_bookingDetails), specialRequests(_specialRequests) {}
+Guest::Guest(std::string _name, std::string _contactInfo) : name(_name), contactInfo(_contactInfo) {}
 
 string Guest::getName() const {
     return name;
 }
-void Guest::setName(std::string name) {
-    this->name = name;
+
+void Guest::setName(string _name) {
+    name = _name;
 }
 
 string Guest::getContactInfo() const {
     return contactInfo;
 }
-void Guest::setContactInfo(std::string contactInfo) {
-    this->contactInfo = contactInfo;
+
+void Guest::setContactInfo(string _contactInfo) {
+    contactInfo = _contactInfo;
 }
 
-Booking Guest::getBookingDetails() const {
+Booking *Guest::getBookingDetails() const {
     return bookingDetails;
 }
-void Guest::setBookingDetails(Booking &_bookingDetails) {
-    this->bookingDetails = _bookingDetails;
+
+void Guest::setBookingDetails(Booking *bookingDetails) {
+    // Since Booking contains non-copyable members (like Room), we can't directly assign it
+    // You might want to use a pointer or reference to Booking instead
+    // Or implement appropriate copy constructors and assignment operators in Booking class
+    // For simplicity, let's use a pointer
+    this->bookingDetails = bookingDetails;
 }
 
 string Guest::getSpecialRequests() const {
     return specialRequests;
 }
-void Guest::setSpecialRequests(std::string specialRequests) {
-    this->specialRequests = specialRequests;
+
+void Guest::setSpecialRequests(string _specialRequests) {
+    specialRequests = _specialRequests;
 }
 
-void Guest::makeBooking(Guest &_guest, Room &_room, string &_bookingDates, std::string &_additionalRequests) {
-    Booking newBooking(_guest,_room, _bookingDates, _additionalRequests);
-    this->bookingDetails = newBooking;
+void Guest::makeBooking(Guest _guest, Room _room, string _bookingDates, string _additionalRequests) {
+    // Since Booking contains non-copyable members (like Room), we can't directly assign it
+    // You might want to use a pointer or reference to Booking instead
+    // Or implement appropriate copy constructors and assignment operators in Booking class
+    // For simplicity, let's use a pointer
+    Booking newBooking(_guest, _room, _bookingDates, _additionalRequests);
+    bookingDetails = &newBooking;
 }
 
-void Guest::updateContactInfo(std::string newContactInfo) {
+void Guest::updateContactInfo(string newContactInfo) {
     contactInfo = newContactInfo;
 }
 
-void Guest::updateSpecialRequests(std::string newRequests) {
+void Guest::updateSpecialRequests(string newRequests) {
     specialRequests = newRequests;
 }

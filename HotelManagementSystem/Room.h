@@ -1,17 +1,9 @@
-//
-// Created by aarya_yoga on 5/1/2024.
-//
-
 #ifndef ROOM_H
 #define ROOM_H
 
-
 #include <string>
-#include "Guest.h"
-#include "Booking.h"
-#include "HotelSystem.h"
 
-class Room: public HotelSystem {
+class Room {
 private:
     int roomNumber;
     std::string type;

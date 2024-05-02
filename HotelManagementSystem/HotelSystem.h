@@ -1,5 +1,5 @@
-#ifndef HOTELMANAGEMENTSYSTEM_H
-#define HOTELMANAGEMENTSYSTEM_H
+#ifndef HOTELSYSTEM_H
+#define HOTELSYSTEM_H
 
 #include <iostream>
 #include <vector>
@@ -14,14 +14,13 @@ protected:
     std::vector<Booking> bookings;
 
 public:
-    // Abstract base class with virtual functions
     virtual double calculateRevenue() = 0;
     virtual void generateRevenueReport() = 0;
-    virtual void checkInGuest(Guest guest, Room room, std::string bookingDates, std::string additionalRequests) = 0;
+    virtual void checkInGuest(Guest* guest, Room* room, std::string bookingDates, std::string additionalRequests) = 0;
     virtual void checkOutGuest(Guest guest) = 0;
     virtual void handleGuestInteraction(Guest guest, std::string interaction) = 0;
     virtual void saveToFile(std::string filename) = 0;
     virtual void loadFromFile(std::string filename) = 0;
 };
 
-#endif //HOTELMANAGEMENTSYSTEM_H
+#endif // HOTELSYSTEM_H

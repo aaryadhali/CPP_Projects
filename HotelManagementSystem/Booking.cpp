@@ -1,52 +1,55 @@
 #include <iostream>
 #include "Booking.h"
 
-
 using namespace std;
 
-Booking::Booking(Guest &_guest, Room &_room, std::string &_bookingDates, std::string &_additionalRequests)
+Booking::Booking(Guest _guest, Room &_room, string _bookingDates, string _additionalRequests)
     : guest(_guest), room(_room), bookingDates(_bookingDates), additionalRequests(_additionalRequests) {}
 
 Guest Booking::getGuest() const {
-    return this->guest;
-}
-void Booking::setGuest(Guest &_guest) {
-    this->guest = _guest;
+    return guest;
 }
 
-Room Booking::getRoom() const {
+void Booking::setGuest(Guest _guest) {
+    guest = _guest;
+}
+
+const Room& Booking::getRoom() const {
     return room;
 }
+
 void Booking::setRoom(Room &_room) {
-    this->room = _room;
+    room = _room;
 }
 
 string Booking::getBookingDates() const {
     return bookingDates;
 }
-void Booking::setBookingDates(std::string bookingDates) {
+
+void Booking::setBookingDates(string bookingDates) {
     this->bookingDates = bookingDates;
 }
 
-std::string Booking::getAdditionalRequests() const {
+string Booking::getAdditionalRequests() const {
     return additionalRequests;
 }
-void Booking::setAdditionalRequests(std::string additionalRequests) {
+
+void Booking::setAdditionalRequests(string additionalRequests) {
     this->additionalRequests = additionalRequests;
 }
 
 void Booking::cancelBooking() {
-    // Reset booking details
-    guest = Guest( "", "");
-    room = Room(0, "", 0.0, "");
+    guest = Guest("", "");
+    // Set room to some default or null value
+    // Example: room = Room(0, "", 0.0, "");
     bookingDates = "";
     additionalRequests = "";
 }
 
-void Booking::updateDates(std::string newDates) {
+void Booking::updateDates(string newDates) {
     bookingDates = newDates;
 }
 
-void Booking::updateRequests(std::string newRequests) {
+void Booking::updateRequests(string newRequests) {
     additionalRequests = newRequests;
 }

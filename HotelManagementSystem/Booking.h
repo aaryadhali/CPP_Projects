@@ -4,23 +4,22 @@
 #include <string>
 #include "Guest.h"
 #include "Room.h"
-#include "HotelSystem.h"
 
-class Booking{
+class Booking {
 private:
     Guest guest;
-    Room room;
+    Room& room; // Use reference to Room instead of Room directly
     std::string bookingDates;
     std::string additionalRequests;
 
 public:
-    Booking(Guest &_guest, Room &_room, std::string &_bookingDates, std::string &_additionalRequests);
+    Booking(Guest _guest, Room& _room, std::string _bookingDates, std::string _additionalRequests);
 
     Guest getGuest() const;
-    void setGuest(Guest &_guest);
+    void setGuest(Guest _guest);
 
-    Room getRoom() const;
-    void setRoom(Room &_room);
+    const Room& getRoom() const; // Return reference to Room
+    void setRoom(Room& _room); // Use reference to Room instead of Room directly
 
     std::string getBookingDates() const;
     void setBookingDates(std::string bookingDates);

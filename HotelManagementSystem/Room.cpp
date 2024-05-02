@@ -1,15 +1,10 @@
-//
-// Created by aarya_yoga on 5/1/2024.
-//
-
 #include "Room.h"
-#include "HotelSystem.h"
 #include <iostream>
-
 
 Room::Room(int roomNumber, std::string type, double price, std::string amenities)
     : roomNumber(roomNumber), type(type), price(price), amenities(amenities), availability(true) {
 }
+
 
 int Room::getRoomNumber() const {
     return roomNumber;
